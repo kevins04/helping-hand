@@ -66,7 +66,7 @@ function AppAppBar(props) {
               variant="h6"
               underline="none"
               className={clsx(classes.rightLink, classes.linkSecondary)}
-              //   href="/sign-up/"
+              href="/signup"
             >
               {"Sign Up"}
             </Link>

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "Views/Login/Login";
-import AppBar from "Views/HomePage/AppBar";
 import withRoot from "./withRoot";
-import ProductHero from "Views/HomePage/ProductHero";
+import Loader from "Components/Loader";
+
+const Login = lazy(() => import("Views/Login/Login"));
+const AppBar = lazy(() => import("Views/HomePage/AppBar"));
+const ProductHero = lazy(() => import("Views/HomePage/ProductHero"));
+const Signup = lazy(() => import("Views/Login/Signup"));
 
 function App() {
   return (
@@ -11,15 +14,19 @@ function App() {
       <div>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route exact path="/">
-            <AppBar />
-            <ProductHero />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-        </Switch>
+        <Suspense fallback={<Loader />}>
+          <Switch>
+            <Route exact path="/">
+              <AppBar />
+              <ProductHero />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+          </Switch>
+        </Suspense>
       </div>
     </Router>
   );
