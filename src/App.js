@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "Views/Login/Login";
 import AppBar from "Views/HomePage/AppBar";
 import withRoot from "./withRoot";
+import ProductHero from "Views/HomePage/ProductHero";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <AppBar />
+            <ProductHero />
           </Route>
           <Route exact path="/login">
             <Login />

@@ -1,7 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-
 import { withStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import AppBar from "Components/AppBar";
@@ -27,7 +26,7 @@ const styles = (theme) => ({
     justifyContent: "flex-end",
   },
   rightLink: {
-    fontSize: 16,
+    fontSize: 15,
     color: theme.palette.common.white,
     marginLeft: theme.spacing(3),
   },
