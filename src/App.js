@@ -7,6 +7,9 @@ const Login = lazy(() => import("Views/Login/Login"));
 const AppBar = lazy(() => import("Views/HomePage/AppBar"));
 const ProductHero = lazy(() => import("Views/HomePage/ProductHero"));
 const Signup = lazy(() => import("Views/Login/Signup"));
+const ProductExperiences = lazy(() =>
+  import("Views/HomePage/ProductExperiences")
+);
 
 function App() {
   return (
@@ -19,6 +22,7 @@ function App() {
             <Route exact path="/">
               <AppBar />
               <ProductHero />
+              <ProductExperiences />
             </Route>
             <Route exact path="/login">
               <Login />
